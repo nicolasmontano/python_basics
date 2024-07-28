@@ -1,0 +1,13 @@
+README.md
+setup.py
+local/__init__.py
+local/app.py
+local/utils.py
+local/risk_1/OOP.py
+local/risk_1/__init__.py
+local/risk_1/module_a.py
+local/risk_1/module_b.py
+my_local_package.egg-info/PKG-INFO
+my_local_package.egg-info/SOURCES.txt
+my_local_package.egg-info/dependency_links.txt
+my_local_package.egg-info/top_level.txt
