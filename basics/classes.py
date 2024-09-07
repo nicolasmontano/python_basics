@@ -7,7 +7,7 @@ T = TypeVar('T', bound='Employee')
 class Employee:
     """
     Class variables
-    self.variale= you want to be able to be different among instances.
+    self.variable= you want to be able to be different among instances.
     Class.variable= you want to be the same for all the instances.
     """
     num_of_emps = 0
@@ -18,8 +18,8 @@ class Employee:
         self._first = first
         self.last = last
         self.pay = pay
-
         Employee.num_of_emps += 1
+        self.email=f"{self._first}.{self.last}@company.com"
 
     def __repr__(self):
         return f"Employee(first={self.first}, last={self.last}, pay= {self.pay})"
@@ -28,22 +28,24 @@ class Employee:
         return '{} {}'.format(self._first, self.last)
 
     # the created attribute can only be set with setter method
+    # property allows to inform  that the attribute is private and provide validation
     @property
     def first(self):
         return self._first
 
     @first.setter
-    def change_firs(self, value: str):
-        self._first = value
-
-    @property
-    def email(self):
-        return '{}.{}@gmail.com'.format(self.first, self.last)
+    def first(self, value: str):
+        if not isinstance(value,str):
+            raise ValueError("New name must be a string")
+        elif not value:
+            raise ValueError("New name must not be empty")
+        else:
+            self._first = value
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
 
-    # class methods are to access cls or update for all basics  state and class contructor
+    # class methods are used to access cls or update for all basics  state and class contractor
     @classmethod
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
@@ -88,10 +90,14 @@ class Manager(Employee):
             print(f"employee with email {employee.email} not in Manager")
 
 
-em1 = Employee.create_inst_from_string("nico-montano-1")
-em2 = Employee.create_inst_from_string("nico-montano-1")
-em3 = Employee.create_inst_from_string("andres-torres-1")
-manager_1 = Manager.create_inst_from_string("andres-montes-100")
 
-manager_1.add_employee(em2)
-manager_1.add_employee(em3)
+
+# if __name__ == '__main__':
+#     em1 = Employee.create_inst_from_string("nico-montano-1")
+#     em2 = Employee.create_inst_from_string("nico-montano-1")
+#     em3 = Employee.create_inst_from_string("andres-torres-1")
+#     manager_1 = Manager.create_inst_from_string("andres-montes-100")
+#
+#     manager_1.add_employee(em2)
+#     manager_1.add_employee(em3)
+#     print(em1.email)
