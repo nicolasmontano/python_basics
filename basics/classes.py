@@ -50,6 +50,7 @@ class Employee:
     def set_raise_amt(cls, amount):
         cls.raise_amt = amount
 
+    # type[T] is used to return the same type of the class that is calling the method
     @classmethod
     def create_inst_from_string(cls: Type[T], emp_str: str) -> T:
         first, last, pay = emp_str.split('-')
