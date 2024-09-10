@@ -15,6 +15,8 @@ print(result)
 # Boolean indexing
 a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 mask = a > 5
+# Get elements greater than 5 with dimensions
+a[mask]
 print(a[mask])
 
 # Fancy indexing
