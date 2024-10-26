@@ -53,5 +53,7 @@ class Manager(Person):
     employees_in_charge: list = field(default_factory=list)
 
 
-a = Employee("nico", "montano", 1992, 1, 1)
-print(a)
+if __name__ == '__main__':
+    person=Person("John", "Doe", 1990, 1, 1)
+    person.name='Andres'
+    print(person)
